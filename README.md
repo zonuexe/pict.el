@@ -102,6 +102,52 @@ If you specify `:var stats="only"`, only statistics will be output.`
  * **Format**
    * None of them are implemented.
 
+### Output styles
+
+#### `style="transpose"`
+
+The table is displayed in a transposed format. This style is particularly useful for creating decision tables, where readability and organization of rules are essential. However, note that transposed tables can become quite wide horizontally, which may affect layout and readability in some cases.
+
+```org
+#+begin_src pict :var style="transpose"
+  Foo: 1, 2, 3
+  Bar: A, B, C
+  Buz: xxx, yyy, zzz
+#+end_src
+
+#+RESULTS:
+| Rule |   1 |   2 |   3 |   4 |   5 |   6 |   7 |   8 |   9 |
+|------+-----+-----+-----+-----+-----+-----+-----+-----+-----|
+| Foo  |   3 |   2 |   3 |   2 |   2 |   1 |   3 |   1 |   1 |
+| Bar  |   B |   B |   C |   A |   C |   B |   A |   A |   C |
+| Buz  | yyy | xxx | zzz | zzz | yyy | zzz | xxx | yyy | xxx |
+```
+
+#### `style="matrix"`
+
+The table is displayed in a matrix-style format, where conditions and values are represented as binary-like indicators (`T` for true). This layout is especially useful for visualizing combinations of conditions or rules in a compact, grid-like structure.
+
+```org
+#+begin_src pict :var style="matrix"
+  Foo: 1, 2, 3
+  Bar: A, B, C
+  Buz: xxx, yyy, zzz
+#+end_src
+
+#+RESULTS:
+| Rule      | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|-----------+---+---+---+---+---+---+---+---+---|
+| Foo = 1   |   |   |   |   |   | T |   | T | T |
+| Foo = 2   |   | T |   | T | T |   |   |   |   |
+| Foo = 3   | T |   | T |   |   |   | T |   |   |
+| Bar = A   |   |   |   | T |   |   | T | T |   |
+| Bar = B   | T | T |   |   |   | T |   |   |   |
+| Bar = C   |   |   | T |   | T |   |   |   | T |
+| Buz = xxx |   | T |   |   |   |   | T |   | T |
+| Buz = yyy | T |   |   |   | T |   |   | T |   |
+| Buz = zzz |   |   | T | T |   | T |   |   |   |
+```
+
 ## Copyright
 
 This package is licensed under [GPL Version 3][GPL-3.0] or later.
