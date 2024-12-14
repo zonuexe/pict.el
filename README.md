@@ -8,6 +8,16 @@ This package can be run standalone, or run via org-babel from the `.org` documen
 > Learn more about PICT and [Pairwise (all-pairs) testing][All-pairs testing] in [the official documentation].
 >> PICT generates test cases and test configurations. With PICT, you can generate tests that are more effective than manually generated tests and in a fraction of the time required by hands-on test case design.
 
+## Install
+
+For Emacs 29 and later, you can easily install it with `package-vc-install`.
+
+```el
+(package-vc-install
+ '(pict :url "git@github.com:zonuexe/pict.el.git"
+        :main-file "pict.el"))
+```
+
 ## `pict.el`
 
 `pict.el` contains major modes for editing PICT models and functions for building `pict` commands.
