@@ -23,10 +23,10 @@
 ;; Org Babel support for evaluating PICT model.
 
 ;;; Code:
+(require 'cl-lib)
 (require 'org)
 (require 'ob)
 (require 'pict)
-(require 'org-table)
 
 (defgroup ob-pict nil
   "Org mode blocks for PICT."
